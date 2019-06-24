@@ -1,11 +1,36 @@
 def two(arr, q):
 
     
-    D = { tuple(q[0]): arr,  tuple(q[1]): arr }
+    D ={ }
+    Sum = 0
+   
+
+    for i in q:
+        D[tuple(i)] = 0
+
+    for i in D:
+        for j in range(i[0],i[1]+1):
+            Sum = arr[j] + Sum
+            D[i] = Sum
+            
+        Sum = 0
+
+    for key,val in D.items():
+        if val%2 != 0:
+            print("No")
+        else:
+            for j in range(key[0], key[1]+1):
+                if val/2 == arr[j]:
+                    print("Yes")
+                    break
+                else:
+                    print(arr[j])
+                    print("No")
+                    break
 
     
 
-    return D
+    return
 
 
 
